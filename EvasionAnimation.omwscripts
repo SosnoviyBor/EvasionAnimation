@@ -1,0 +1,4 @@
+PLAYER, NPC: scripts/EvasionAnimation/actor.lua
+
+MENU: scripts/EvasionAnimation/settingsMenu.lua
+GLOBAL: scripts/EvasionAnimation/settingsGlobal.lua

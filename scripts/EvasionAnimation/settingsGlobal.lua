@@ -1,0 +1,2 @@
+-- ignore players
+-- compatibility mode
