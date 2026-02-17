@@ -1,2 +1,2 @@
 -- ignore players
--- compatibility mode
+-- precalculate attack success

@@ -2,7 +2,8 @@ local I = require("openmw.interfaces")
 local anim = require('openmw.animation')
 local self = require('openmw.self')
 
-local anims = { "idle9" }
+local anims = { "idle9" } -- todo rename anims
+-- filename.kf -> NiTextKeyExtraData -> TextKeys -> Value from Idle9:Start to DodgeLeft:Start and DodgeRight:Start
 
 local animData = {
     startKey = "start",
@@ -20,7 +21,7 @@ end
 
 I.Combat.addOnHitHandler(playAnim)
 
--- local animKeys = {
+-- local animGroups = {
 --     "weapononehand",
 --     "weapontwohand",
 --     "weapontwowide",
@@ -36,19 +37,20 @@ I.Combat.addOnHitHandler(playAnim)
 --     },
 -- }
 
--- for _, k in ipairs(animKeys) do
---     I.AnimationController.addTextKeyHandler(k, function(groupname, key)
+-- for _, group in ipairs(animGroups) do
+--     I.AnimationController.addTextKeyHandler(group, function(groupname, key)
 --         print('Group: ' .. groupname .. ', Key: ' .. key .. ', self: ' .. self.recordId)
 --         if string.find(key, "min attack") then
 --             local target = self -- todo
+--             -- maybe there will be something at QuickLoot in ql_pickpocket.lua
 --             if not target then return end
 
 --             local attackSuccessful = true -- todo
 --             if attackSuccessful then
---                 target:sendEvent("playBlendedAnimation", animData)
---                 -- add 1000 fortify atack for 1 sec to self
+--                 -- send event to the target to guarantee an attack from self for a second or so
 --             else
---                 -- add 1000 senctuary for 1 sec to target
+--                 target:sendEvent("playBlendedAnimation", animData)
+--                 -- send event to the target to guarantee a miss from self for a second or so
 --             end
 --         end
 --     end)
